@@ -1,0 +1,197 @@
+// Başlangıç Bölümü
+#baslangic {
+  .wrapper {
+    background: url(../images/intro-bg.jpg) center center no-repeat;
+    background-size: cover;
+    padding-bottom: 110px;
+    padding-top: 180px;
+  }
+  .container-fluid {
+    background-color: rgba(0,0,0,.65);
+  }
+  .form-inline {
+    .margin-tb(70px);
+  }
+  .form-control {
+    background: transparent !important;
+    border: 0;
+    border-bottom: 2px solid #f1f3ee;
+    border-radius: 0;
+    box-shadow: none;
+
+    input[type="text"]& {
+      margin-left: 30px;
+      .text-center();
+    }
+  }
+}
+
+// Intro Bölümü
+#intro {
+  .wrapper {
+    padding-top: 50px;
+  }
+}
+
+// Sponsorlar Bölümü
+#sponsorlar {
+  .carousel {
+    margin-bottom: 30px;
+  }
+  .item {
+    .text-center();
+
+    > a {
+      display: inline-block;
+      max-width: 300px;
+
+      > img {
+        .img-responsive(inline-block);
+      }
+    }
+  }
+  .owl-carousel {
+    .owl-nav {
+      .owl-prev,
+      .owl-next {
+        display: block;
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .owl-prev {
+        left: -20px;
+      }
+      .owl-next {
+        left: auto;
+        right: -20px;
+      }
+    }
+  }
+}
+
+// Kategoriler Bölümü
+#kategoriler {
+  .item-col {
+    float: left;
+    .padding-lr();
+    width: 248px;
+
+    > a {
+      color: #fff;
+      display: block;
+      height: 170px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      position: relative;
+      .text-center();
+      width: 100%;
+
+      > img {
+        .img-responsive(inline-block);
+      }
+      > span {
+        background-color: #e6b706;
+        color: inherit;
+        font-size: 16px;
+        line-height: 28px;
+        position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        .text-overflow();
+      }
+      &:hover,
+      &:focus {
+        color: #fff;
+      }
+    }
+  }
+  .mCSB_horizontal.mCSB_inside > .mCSB_container {
+    margin-top: 20px;
+  }
+  .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    top: 0;
+    transform: translateX(-50%);
+    width: 930px;
+  }
+  .mCS-rounded-dark.mCSB_scrollTools {
+    .mCSB_draggerRail {
+      background-color: #f1f3ee;
+    }
+    .mCSB_dragger .mCSB_dragger_bar {
+      background-color: #fff;
+      border: 2px solid #e6b706;
+      border-radius: 3px;
+    }
+  }
+}
+
+// Kurallar Bölümü
+#kurallar {
+  .container-fluid {
+    padding-bottom: 30px;
+  }
+}
+
+// Gönüllü Ol Bölümü
+#gonulluluk {
+  .btn {
+    background-color: #313332;
+    border-color: #313332;
+    border-radius: @border-radius-large;
+    color: #fff;
+    .margin-tb(20px);
+    .padding-lr(80px);
+
+    &:hover,
+    &:focus {
+      background-color: darken(#313332, 5%);
+      border-color: darken(#313332, 5%);
+    }
+  }
+  @media (min-width: @screen-sm) {
+    .btn {
+      font-size: 18px;
+    }
+  }
+  @media (min-width: @screen-md) {
+    .btn {
+      border-radius: floor(@border-radius-large * 1.8);
+      font-size: 24px;
+    }
+  }
+  @media (min-width: @screen-lg) {
+    .btn {
+      border-radius: floor(@border-radius-large * 2.5);
+      font-size: 30px;
+    }
+  }
+}
+
+// Sayılar Bölümü
+#sayilar {
+  .list-inline {
+    > li {
+      .padding-lr(40px);
+    }
+  }
+  figure {
+    margin-bottom: 20px;
+  }
+  .diagram {
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+  .diagram-text {
+    font-weight: 700;
+  }
+  figcaption {
+    font-size: 21px;
+    line-height: 1.1;
+  }
+}

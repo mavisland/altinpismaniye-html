@@ -99,25 +99,9 @@ gulp.task("clean", function () {
  */
 gulp.task('copy', [
   'copy:images',
-  'copy:fonts',
   'copy:modernizr',
   'copy:scripts'
 ]);
-
-/**
- * Task: 'copy:fonts'.
- */
-gulp.task('copy:fonts', function(){
-  return gulp.src([
-    'src/components/font-awesome/fonts/*.{eot,svg,ttf,woff,woff2}'
-  ])
-    .pipe(gulp.dest("./public/assets/fonts"))
-    .pipe(reload({stream: true}))
-    .pipe(notify({
-      message: 'TASK: "copy:fonts" Completed! 💯',
-      onLast: true
-    }));
-});
 
 /**
  * Task: 'copy:images'.
@@ -129,7 +113,8 @@ gulp.task('copy:fonts', function(){
  */
 gulp.task('copy:images', function(){
   gulp.src([
-    'src/components/owl-carousel/images/*.{png,jpg,gif}'
+    'src/components/owl-carousel/images/*.{png,jpg,gif}',
+    'src/components/mcustom-scrollbar/images/*.{png,jpg,gif}'
   ])
     .pipe(cache(imageMin({
       progressive: true,
@@ -215,19 +200,21 @@ gulp.task('images', function(){
 gulp.task('scripts', function(){
   gulp.src([
     'src/components/bootstrap/js/transition.js',
-    'src/components/bootstrap/js/alert.js',
-    'src/components/bootstrap/js/button.js',
-    'src/components/bootstrap/js/carousel.js',
+    // 'src/components/bootstrap/js/alert.js',
+    // 'src/components/bootstrap/js/button.js',
+    // 'src/components/bootstrap/js/carousel.js',
     'src/components/bootstrap/js/collapse.js',
     'src/components/bootstrap/js/dropdown.js',
-    'src/components/bootstrap/js/modal.js',
-    'src/components/bootstrap/js/tooltip.js',
-    'src/components/bootstrap/js/popover.js',
+    // 'src/components/bootstrap/js/modal.js',
+    // 'src/components/bootstrap/js/tooltip.js',
+    // 'src/components/bootstrap/js/popover.js',
     'src/components/bootstrap/js/scrollspy.js',
-    'src/components/bootstrap/js/tab.js',
-    'src/components/bootstrap/js/affix.js',
+    // 'src/components/bootstrap/js/tab.js',
+    // 'src/components/bootstrap/js/affix.js',
     'src/components/magnific-popup/js/jquery.magnific-popup.js',
     'src/components/owl-carousel/js/owl.carousel.js',
+    'src/components/circle-diagram/jquery.circle-diagram.js',
+    'src/components/mcustom-scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
     'src/scripts/main.js'
   ])
     .pipe(plumber(function(error) {
@@ -333,7 +320,7 @@ gulp.task('default', ['copy', 'images', 'styles', 'scripts', 'templates'], funct
   gulp.watch([
     'src/components/**/*.{png,jpg,gif,svg}',
     'src/images/**/*.{png,jpg,gif,svg}'
-  ], ['imagemin']);
+  ], ['images']);
 
   // Styles
   gulp.watch([

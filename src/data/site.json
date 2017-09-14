@@ -1,4 +1,123 @@
 {
   "siteName": "Altın Pişmaniye Ödülleri",
-  "siteLang": "tr"
+  "siteLang": "tr",
+  "sponsorlar": [
+    {
+      "title": "Sponsor #1",
+      "img": "sponsor/logo01.jpg"
+    },
+    {
+      "title": "Sponsor #2",
+      "img": "sponsor/logo02.jpg"
+    },
+    {
+      "title": "Sponsor #3",
+      "img": "sponsor/logo03.jpg"
+    },
+    {
+      "title": "Sponsor #4",
+      "img": "sponsor/logo04.jpg"
+    },
+    {
+      "title": "Sponsor #5",
+      "img": "sponsor/logo05.jpg"
+    },
+    {
+      "title": "Sponsor #6",
+      "img": "sponsor/logo06.jpg"
+    }
+  ],
+  "kategoriler": [
+    {
+      "title": "Kategori #1",
+      "img": "kategori/kategori01.jpg"
+    },
+    {
+      "title": "Kategori #2",
+      "img": "kategori/kategori02.jpg"
+    },
+    {
+      "title": "Kategori #3",
+      "img": "kategori/kategori03.jpg"
+    },
+    {
+      "title": "Kategori #4",
+      "img": "kategori/kategori04.jpg"
+    },
+    {
+      "title": "Kategori #5",
+      "img": "kategori/kategori05.jpg"
+    },
+    {
+      "title": "Kategori #6",
+      "img": "kategori/kategori01.jpg"
+    },
+    {
+      "title": "Kategori #7",
+      "img": "kategori/kategori02.jpg"
+    },
+    {
+      "title": "Kategori #8",
+      "img": "kategori/kategori03.jpg"
+    },
+    {
+      "title": "Kategori #9",
+      "img": "kategori/kategori04.jpg"
+    },
+    {
+      "title": "Kategori #10",
+      "img": "kategori/kategori05.jpg"
+    },
+    {
+      "title": "Kategori #1",
+      "img": "kategori/kategori01.jpg"
+    },
+    {
+      "title": "Kategori #2",
+      "img": "kategori/kategori02.jpg"
+    },
+    {
+      "title": "Kategori #3",
+      "img": "kategori/kategori03.jpg"
+    },
+    {
+      "title": "Kategori #4",
+      "img": "kategori/kategori04.jpg"
+    },
+    {
+      "title": "Kategori #5",
+      "img": "kategori/kategori05.jpg"
+    },
+    {
+      "title": "Kategori #6",
+      "img": "kategori/kategori01.jpg"
+    }
+  ],
+  "sayilar": [
+    {
+      "title": "InDesign",
+      "slug": "indesign",
+      "percentage": 72
+    },
+    {
+      "title": "After Effects",
+      "slug": "after-effects",
+      "percentage": 40
+    },
+    {
+      "title": "Illustrator",
+      "slug": "illustrator",
+      "percentage": 90
+    },
+    {
+      "title": "Photoshop",
+      "slug": "photoshop",
+      "percentage": 62
+    },
+    {
+      "title": "Premiere",
+      "slug": "premiere",
+      "percentage": 54
+    }
+  ]
 }

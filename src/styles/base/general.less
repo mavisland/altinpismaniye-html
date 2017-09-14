@@ -1,0 +1,37 @@
+/* -------------------------------------------------- *\
+   $GENERAL
+\* -------------------------------------------------- */
+
+// Font Smoothing
+// -------------------------
+html {
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+// html,
+// body {
+//  min-height: 100%;
+//  overflow-x: hidden;
+// }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+}
+
+// Links
+// -------------------------
+a {
+  .transition(all 200ms ease);
+
+  &,
+  &:hover,
+  &:focus {
+    outline: 0;
+  }
+}

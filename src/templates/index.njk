@@ -1,35 +1,204 @@
-<!-- index.nunjucks -->
 {% extends "layouts/master.njk" %}
-
 {% block content %}
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Hello, world!</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-      </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+  <section class="section" id="baslangic">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
+            <form class="form-inline">
+              <div class="form-group form-group-lg">
+                <select class="form-control">
+                  {% for item in kategoriler %}
+                  <option value="">{{ item.title }}</option>}
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="form-group form-group-lg">
+                <input type="text" class="form-control" placeholder="Aday Öner">
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <hr>
-    <footer>
-      <p>&copy; Company 2017</p>
-    </footer>
-  </div>
+  </section>
+  <section class="section has-svg section-primary" id="intro">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title">
+              <h1>Altın Pişmaniye Ödülleri</h1>
+              <p>Türkiye'nin en kapsamlı ödül töreni.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
+    </div>
+  </section>
+  <section class="section has-svg" id="hakkimizda">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title">
+              <h1>Hakkımızda</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="col-xs-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
+    </div>
+  </section>
+  <section class="section has-svg section-alt" id="sponsorlar">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title">
+              <h1>Sponsorlar</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+            <div class="carousel owl-carousel">
+              <div class="carousel-inner" id="sponsor-carousel">
+                {% for item in sponsorlar %}
+                <div class="item">
+                  <a href="#" title="{{ item.title }}">
+                    <img src="assets/images/{{ item.img }}" alt="{{ item.title }}">
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
+    </div>
+  </section>
+  <section class="section has-svg" id="kategoriler">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title">
+              <h1>Kategoriler</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mcs-horizontal-example" style="overflow-x: auto;">
+      {% for item in kategoriler %}
+        {% if (loop.index%2 != 0) %}
+        <div class="item-col">
+        {% endif %}
+          <a href="#">
+            <img src="assets/images/{{ item.img }}" alt="{{ item.title }}">
+            <span>{{ item.title }}</span>
+          </a>
+        {% if (loop.index%2 == 0) %}
+        </div>
+        {% endif %}
+      {% endfor %}
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
+    </div>
+  </section>
+  <section class="section has-svg section-alt" id="kurallar">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="section-title">
+              <h1>Kurallar</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3 text-center">
+            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="col-xs-3 text-center">
+            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="col-xs-3 text-center">
+            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+          <div class="col-xs-3 text-center">
+            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
+    </div>
+  </section>
+  <section class="section has-svg" id="gonulluluk">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+            <a href="#" class="btn">Gönüllü Ol</a>
+          </div>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
+    </div>
+  </section>
+  <section class="section has-svg section-primary" id="sayilar">
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <ul class="list-inline">
+              {% for item in sayilar %}
+              <li>
+                <figure>
+                  <span id="diagram-{{ item.slug }}" class="diagram"></span>
+                  <figcaption>{{ item.title }}</figcaption>
+                </figure>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block scripts %}
+  <script>
+    $(document).ready(function(){
+      {% for item in sayilar %}
+      $('#diagram-{{ item.slug }}').circleDiagram({
+        "percent": "{{ item.percentage }}%",
+        "size": "110",
+        "borderWidth": "20",
+        "bgFill": "#b89205",
+        "frFill": "#fff",
+        "textSize": "22",
+        "textColor": "#fff"
+      });
+      {% endfor %}
+    });
+  </script>
 {% endblock %}
