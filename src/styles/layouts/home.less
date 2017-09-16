@@ -180,18 +180,32 @@
       .padding-lr(40px);
     }
   }
-  figure {
-    margin-bottom: 20px;
-  }
-  .diagram {
+  .chart {
+    position: relative;
+    width: 124px;
+    height: 124px;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+
+    .percent {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-family: Montserrat;
+      font-weight: 800;
+      font-size: 20px;
+      transform: translate(-50%, -50%);
+    }
+    > canvas {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
   }
-  .diagram-text {
-    font-weight: 700;
-  }
-  figcaption {
+  .chart-label {
     font-size: 21px;
     line-height: 1.1;
+    margin-bottom: 15px;
   }
 }

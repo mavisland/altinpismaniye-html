@@ -213,7 +213,8 @@ gulp.task('scripts', function(){
     // 'src/components/bootstrap/js/affix.js',
     'src/components/magnific-popup/js/jquery.magnific-popup.js',
     'src/components/owl-carousel/js/owl.carousel.js',
-    'src/components/circle-diagram/jquery.circle-diagram.js',
+    'src/components/waypoints/jquery.waypoints.js',
+    'src/components/jquery.easy-pie-chart/jquery.easypiechart.js',
     'src/components/mcustom-scrollbar/js/jquery.mCustomScrollbar.concat.min.js',
     'src/scripts/main.js'
   ])

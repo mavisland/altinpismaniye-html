@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 text-center">
-            <form class="form-inline">
+            <form class="animateIt form-inline" data-effect="fade">
               <div class="form-group form-group-lg">
                 <select class="form-control">
                   {% for item in kategoriler %}
@@ -43,8 +43,8 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="section-title">
-              <h1>Hakkımızda</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1 class="animateIt" data-effect="fade-up">Hakkımızda</h1>
+              <p class="animateIt" data-effect="fade-up" data-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </div>
         </div>
@@ -66,8 +66,8 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="section-title">
-              <h1>Sponsorlar</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1 class="animateIt" data-effect="fade-up">Sponsorlar</h1>
+              <p class="animateIt" data-effect="fade-up" data-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </div>
         </div>
@@ -96,8 +96,8 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="section-title">
-              <h1>Kategoriler</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1 class="animateIt" data-effect="fade-up">Kategoriler</h1>
+              <p class="animateIt" data-effect="fade-up" data-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </div>
         </div>
@@ -125,28 +125,20 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="section-title">
-              <h1>Kurallar</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1 class="animateIt" data-effect="fade-up">Kurallar</h1>
+              <p class="animateIt" data-effect="fade-up" data-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </div>
         </div>
         <div class="row">
+          {% for item in kurallar %}
           <div class="col-xs-3 text-center">
-            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="animateIt" data-effect="{{ item.animation }}" data-delay="{{ item.delay }}">
+              <p class="h4"><strong>{{ item.title }}</strong></p>
+              <p>{{ item.text }}</p>
+            </div>
           </div>
-          <div class="col-xs-3 text-center">
-            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-          <div class="col-xs-3 text-center">
-            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-          <div class="col-xs-3 text-center">
-            <p class="h4"><strong>Lorem ipsum dolor sit amet</strong></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
+          {% endfor %}
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="separator separator-bottom" width="100%" height="100" viewBox="0 0 99 100" preserveAspectRatio="none"><path d="M0 0 L100 0 L50 100 Z"></path></svg>
@@ -172,10 +164,10 @@
             <ul class="list-inline">
               {% for item in sayilar %}
               <li>
-                <figure>
-                  <span id="diagram-{{ item.slug }}" class="diagram"></span>
-                  <figcaption>{{ item.title }}</figcaption>
-                </figure>
+                <div class="chart" data-percent="{{ item.percentage }}" data-scale-color="#ffb400">
+                  <span class="percent">{{ item.percentage }}%</span>
+                </div>
+                <div class="chart-label">{{ item.title }}</div>
               </li>
               {% endfor %}
             </ul>
@@ -184,21 +176,4 @@
       </div>
     </div>
   </section>
-{% endblock %}
-{% block scripts %}
-  <script>
-    $(document).ready(function(){
-      {% for item in sayilar %}
-      $('#diagram-{{ item.slug }}').circleDiagram({
-        "percent": "{{ item.percentage }}%",
-        "size": "110",
-        "borderWidth": "20",
-        "bgFill": "#b89205",
-        "frFill": "#fff",
-        "textSize": "22",
-        "textColor": "#fff"
-      });
-      {% endfor %}
-    });
-  </script>
 {% endblock %}

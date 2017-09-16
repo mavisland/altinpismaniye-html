@@ -5,6 +5,85 @@
   var $body   = $('body');
 
   /**
+   * Test Device
+   */
+  var isMobile = {
+    Android: function() {
+      return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+      return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+      return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+      return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+      return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+      return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+    }
+  };
+  var testMobile = isMobile.any();
+
+  /**
+   * Animation functions
+   */
+  $.fn.animateIt = function(type, delay, effect) {
+    if (testMobile === null) {
+      $(this).each(function(i, e) {
+        var a, b, c, d;
+        if (effect != null) {
+          a = effect.split('-');
+        } else {
+          a = $(e).data('effect').split('-');
+        }
+        b = typeof a[1] !== 'undefined' ? a[1] : '';
+        if (delay != null) {
+          c = delay;
+        } else {
+          c = $(e).data('delay');
+        }
+        if (c) {
+          d = 'animated ' + a[0] + type + b.charAt(0).toUpperCase() + b.slice(1) + ' delay' + c / 100;
+        } else {
+          d = 'animated ' + a[0] + type + b.charAt(0).toUpperCase() + b.slice(1) + ' delay0';
+        }
+        $(e).addClass(d);
+      });
+    }
+  };
+  $.fn.removeAnimate = function() {
+    if (testMobile === null) {
+      $(this).each(function(i, e) {
+        var a, b, c;
+        a = $(e).attr('class');
+        b = a.match(/animated(.*?)(delay[0-9]+)/g);
+        if (b != null) {
+          c = b.join('');
+          $(e).removeClass(c);
+        }
+      });
+    }
+  };
+
+  /**
+   * On Scroll Animation with Waypoints
+   */
+  if ($.fn.waypoint) {
+    $('.animateIt').waypoint((function() {
+      if (!$(this.element).hasClass('animated')) {
+        $(this.element).animateIt('In');
+      }
+    }), {
+      offset: '95%'
+    });
+  }
+
+  /**
    * Shrink Navbar
    */
   $window.scroll(function() {
@@ -20,21 +99,24 @@
    * ScrollSpy
    */
   $body.scrollspy({
-    target : ".navbar-collapse",
-    offset : 95
+    target: ".navbar-collapse",
+    offset: 95
   });
 
-  $('a[href^="#"]').on('click',function (e) {
-      e.preventDefault();
+  /**
+   * Smooth Scroll
+   */
+  $('a[href^="#"]').on('click', function(e) {
+    e.preventDefault();
 
-      var target = this.hash;
-      var $target = $(target);
+    var target = this.hash;
+    var $target = $(target);
 
-      $('html, body').stop().animate({
-          'scrollTop': $target.offset().top
-      }, 900, 'swing', function () {
-          window.location.hash = target;
-      });
+    $('html, body').stop().animate({
+      'scrollTop': $target.offset().top
+    }, 900, 'swing', function() {
+      window.location.hash = target;
+    });
   });
 
   /**
@@ -73,19 +155,50 @@
     sponsor_carousel.trigger('next.owl.carousel');
   });
 
+  /**
+   * Horizontal Content Scroll
+   */
   $(".mcs-horizontal-example").mCustomScrollbar({
-    axis:"x",
-    // theme:"dark-3",
-    advanced:{
-      autoExpandHorizontalScroll:true //optional (remove or set to false for non-dynamic/static elements)
+    advanced: {
+      autoExpandHorizontalScroll: true
     },
-    scrollButtons:{enable:true,scrollType:"stepped"},
-    keyboard:{scrollType:"stepped"},
-    mouseWheel:{scrollAmount:188,normalizeDelta:true},
-    theme:"rounded-dark",
-    autoExpandScrollbar:true,
-    snapAmount:188,
-    snapOffset:65
+    autoExpandScrollbar: true,
+    axis: "x",
+    keyboard: {
+      scrollType:"stepped"
+    },
+    mouseWheel: {
+      enable: false
+    },
+    snapAmount: 188,
+    snapOffset: 65,
+    scrollButtons: {
+      enable: true,
+      scrollType: "stepped"
+    },
+    theme: "rounded-dark"
   });
 
+  /**
+   * Circle Progress Bar
+   */
+  $window.scroll(function() {
+    var blmpxl = $('#sayilar').offset().top - $window.scrollTop();
+    console.log(blmpxl);
+
+    if (blmpxl < 536) {
+      $('.chart').easyPieChart({
+        barColor: '#ffffff',
+        scaleColor: false,
+        trackColor: '#b89205',
+        lineCap: 'butt',
+        lineWidth: 20,
+        size: 124,
+        easing: 'easeOutBounce',
+        onStep: function(from, to, percent) {
+          $(this.el).find('.percent').text(Math.round(percent) + "%");
+        }
+      });
+    }
+  });
 })(jQuery);
