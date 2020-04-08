@@ -12,7 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.20.1",
-    "del": "^3.0.0",
+    "del": "^5.1.0",
     "es6-promise": "^4.2.2",
     "gulp": "^3.9.1",
     "gulp-archiver": "^1.0.0",
