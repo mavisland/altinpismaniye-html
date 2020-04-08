@@ -23,7 +23,7 @@
     "gulp-csscomb": "*",
     "gulp-data": "^1.2.1",
     "gulp-header": "^1.8.9",
-    "gulp-imagemin": "^4.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-less": "^3.3.2",
     "gulp-notify": "^3.0.0",
     "gulp-nunjucks-render": "^2.2.1",
